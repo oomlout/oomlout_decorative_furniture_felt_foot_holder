@@ -1,0 +1,14 @@
+# Oomlout decorative furniture felt foot holder
+
+
+## parts
+
+### bottom_0_width_0_height_5_mm_depth_40_mm_felt_pad_od_extra
+* link: [/bottom_0_width_0_height_5_mm_depth_40_mm_felt_pad_od_extra](bottom_0_width_0_height_5_mm_depth_40_mm_felt_pad_od_extra)  
+![](bottom_0_width_0_height_5_mm_depth_40_mm_felt_pad_od_extra/3dpr_300.png)  ![](bottom_0_width_0_height_5_mm_depth_40_mm_felt_pad_od_extra/image_300.jpg)
+ 
+
+### top_0_width_0_height_6_mm_depth_40_mm_felt_pad_od_30_mm_furniture_leg_od_extra
+* link: [/top_0_width_0_height_6_mm_depth_40_mm_felt_pad_od_30_mm_furniture_leg_od_extra](top_0_width_0_height_6_mm_depth_40_mm_felt_pad_od_30_mm_furniture_leg_od_extra)  
+![](top_0_width_0_height_6_mm_depth_40_mm_felt_pad_od_30_mm_furniture_leg_od_extra/3dpr_300.png)  ![](top_0_width_0_height_6_mm_depth_40_mm_felt_pad_od_30_mm_furniture_leg_od_extra/image_300.jpg)
+ 

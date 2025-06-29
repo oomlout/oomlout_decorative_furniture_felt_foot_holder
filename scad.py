@@ -118,20 +118,70 @@ def make_scad(**kwargs):
         part_default["full_shift"] = [0, 0, 0]
         part_default["full_rotations"] = [0, 0, 0]
         
-        part = copy.deepcopy(part_default)
-        p3 = copy.deepcopy(kwargs)
-        p3["width"] = 3
-        p3["height"] = 3
-        #p3["thickness"] = 6
-        #p3["extra"] = ""
-        part["kwargs"] = p3
-        nam = "base"
-        part["name"] = nam
-        if oomp_mode == "oobb":
-            p3["oomp_size"] = nam
-        if not test:
-            pass
-            #parts.append(part)
+
+
+        #bottom
+        bottoms = []
+        depth_bottom = 5
+        bottom = {}
+        #felt_pad_od 40 mm
+        bottom["felt_pad_od"] = 40
+        bottom["felt_pad_border"] = 5
+        bottom["felt_pad_depth"] = 2
+        bottom["screw_spacing"] = 36
+        bottom["thickness"] = depth_bottom
+        bottoms.append(bottom)
+
+        for bot in bottoms:
+            part = copy.deepcopy(part_default)
+            p3 = copy.deepcopy(kwargs)
+            p3["width"] = 0
+            p3["height"] = 0
+            p3.update(bot)
+            #p3["thickness"] = 6
+            p3["extra"] = f"{p3['felt_pad_od']}_mm_felt_pad_od"
+
+            part["kwargs"] = p3
+            nam = "bottom"
+            part["name"] = nam
+            if oomp_mode == "oobb":
+                p3["oomp_size"] = nam
+            if not test:
+                pass
+                parts.append(part)
+
+
+        tops = []
+        top = {}
+        #furniture_leg_od
+        top["furniture_leg_od"] = 30
+        top["felt_pad_od"] = 40
+        top["felt_pad_border"] = 5
+        top["thickness"] = 6
+        top["depth_bottom"] = depth_bottom
+        top["screw_spacing"] = 36
+        tops.append(top)
+
+        for top in tops:
+            part = copy.deepcopy(part_default)
+            p3 = copy.deepcopy(kwargs)
+            p3["width"] = 0
+            p3["height"] = 0
+            p3.update(top)
+            #p3["thickness"] = 6
+        #felt pad first
+            p3["extra"] = f"{p3['felt_pad_od']}_mm_felt_pad_od"
+            p3["extra"] += f"_{p3['furniture_leg_od']}_mm_furniture_leg_od"
+
+            part["kwargs"] = p3
+            nam = "top"
+            part["name"] = nam
+            if oomp_mode == "oobb":
+                p3["oomp_size"] = nam
+            if not test:
+                pass
+                parts.append(part)
+
 
 
     kwargs["parts"] = parts
@@ -143,8 +193,8 @@ def make_scad(**kwargs):
         sort = []
         #sort.append("extra")
         sort.append("name")
-        sort.append("width")
-        sort.append("height")
+        sort.append("felt_pad_od")
+        sort.append("furniture_leg_od")
         sort.append("thickness")
         
         scad_help.generate_navigation(sort = sort)
@@ -209,7 +259,196 @@ def get_base(thing, **kwargs):
         p3["pos"] = pos1
         #p3["m"] = "#"
         oobb_base.append_full(thing,**p3)
+
+def get_bottom(thing, **kwargs):
+
+    prepare_print = kwargs.get("prepare_print", False)
+    width = kwargs.get("width", 1)
+    height = kwargs.get("height", 1)
+    depth = kwargs.get("thickness", 3)                    
+    rot = kwargs.get("rot", [0, 0, 0])
+    pos = kwargs.get("pos", [0, 0, 0])
+    extra = kwargs.get("extra", "")
     
+    felt_pad_od = kwargs.get("felt_pad_od", 40)
+    felt_pad_border = kwargs.get("felt_pad_border", 5)
+    felt_pad_depth = kwargs.get("felt_pad_depth", 2)
+    screw_spacing = kwargs.get("screw_spacing", 36)
+
+    outside_diameter = felt_pad_od + felt_pad_border
+
+    #add main cylinder
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "positive"
+    p3["shape"] = f"oobb_cylinder"    
+    p3["depth"] = depth
+    p3["radius"] = outside_diameter / 2
+    
+    #p3["m"] = "#"
+    pos1 = copy.deepcopy(pos)         
+    p3["pos"] = pos1
+    oobb_base.append_full(thing,**p3)
+    
+    #add pad cutout
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "negative"
+    p3["shape"] = f"oobb_cylinder"
+    p3["depth"] = felt_pad_depth
+    p3["radius"] = (felt_pad_od / 2 ) + 0.5
+    
+    #p3["m"] = "#"
+    pos1 = copy.deepcopy(pos)
+    pos1[2] += 0 + depth/2 - felt_pad_depth/2
+    p3["pos"] = pos1
+    oobb_base.append_full(thing,**p3)
+
+    #add oobb_screw_countersunk radius name m3 depth 6
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "negative"
+    p3["shape"] = f"oobb_screw_countersunk"
+    p3["depth"] = 10
+    p3["radius_name"] = "m3"
+    p3["nut"] = True
+    poss = []
+    pos1 = copy.deepcopy(pos)
+    pos1[2] += 0 + depth/2 - felt_pad_depth/2
+    pos11 = copy.deepcopy(pos1)
+    pos11[0] += screw_spacing / 2
+    poss.append(pos11)
+    pos12 = copy.deepcopy(pos1)
+    pos12[0] += -screw_spacing / 2
+    poss.append(pos12)
+    p3["pos"]  = poss
+    rot1 = copy.deepcopy(rot)
+    rot1[0] = 0
+    p3["rot"] = rot1
+    p3["m"] = "#"
+    oobb_base.append_full(thing,**p3)
+
+
+    if prepare_print:
+        #put into a rotation object
+        components_second = copy.deepcopy(thing["components"])
+        return_value_2 = {}
+        return_value_2["type"]  = "rotation"
+        return_value_2["typetype"]  = "p"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 50
+        return_value_2["pos"] = pos1
+        return_value_2["rot"] = [180,0,0]
+        return_value_2["objects"] = components_second
+        
+        thing["components"].append(return_value_2)
+
+    
+        #add slice # top
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_slice"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += -500/2
+        pos1[1] += 0
+        pos1[2] += -500/2        
+        p3["pos"] = pos1
+        #p3["m"] = "#"
+        oobb_base.append_full(thing,**p3)
+
+def get_top(thing, **kwargs):
+
+    prepare_print = kwargs.get("prepare_print", False)
+    width = kwargs.get("width", 1)
+    height = kwargs.get("height", 1)
+    depth = kwargs.get("thickness", 3)                    
+    rot = kwargs.get("rot", [0, 0, 0])
+    pos = kwargs.get("pos", [0, 0, 0])
+    extra = kwargs.get("extra", "")
+    
+    felt_pad_od = kwargs.get("felt_pad_od", 40)
+    felt_pad_border = kwargs.get("felt_pad_border", 5)
+    felt_pad_depth = kwargs.get("felt_pad_depth", 2)
+    screw_spacing = kwargs.get("screw_spacing", 36)
+    depth_bottom = kwargs.get("depth_bottom", 5)
+    furniture_leg_od = kwargs.get("furniture_leg_od", 30)
+
+    outside_diameter = felt_pad_od + felt_pad_border
+
+    #add main cylinder
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "positive"
+    p3["shape"] = f"oobb_cylinder"    
+    p3["depth"] = depth
+    p3["radius"] = outside_diameter / 2
+    
+    #p3["m"] = "#"
+    pos1 = copy.deepcopy(pos)         
+    pos1[2] += -depth_bottom
+    p3["pos"] = pos1
+    oobb_base.append_full(thing,**p3)
+    
+    #add firhiture leg cutout
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "negative"
+    p3["shape"] = f"oobb_cylinder"
+    dep = depth - 3
+    p3["depth"] = dep
+    p3["radius"] = (furniture_leg_od / 2 ) + 0.5    
+    p3["m"] = "#"
+    pos1 = copy.deepcopy(pos)
+    pos1[2] += -depth_bottom - 3 + dep/2
+    p3["pos"] = pos1
+    oobb_base.append_full(thing,**p3)
+
+    #add oobb_screw_countersunk radius name m3 depth 6
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "negative"
+    p3["shape"] = f"oobb_screw_countersunk"
+    p3["depth"] = 10
+    p3["radius_name"] = "m3"
+    p3["nut"] = True
+    poss = []
+    pos1 = copy.deepcopy(pos)
+    pos1[2] += 0 + depth/2 - felt_pad_depth/2
+    pos11 = copy.deepcopy(pos1)
+    pos11[0] += screw_spacing / 2
+    poss.append(pos11)
+    pos12 = copy.deepcopy(pos1)
+    pos12[0] += -screw_spacing / 2
+    poss.append(pos12)
+    p3["pos"]  = poss
+    rot1 = copy.deepcopy(rot)
+    rot1[2] = 360/12
+    p3["rot"] = rot1
+    p3["m"] = "#"
+    oobb_base.append_full(thing,**p3)
+
+
+    if prepare_print:
+        #put into a rotation object
+        components_second = copy.deepcopy(thing["components"])
+        return_value_2 = {}
+        return_value_2["type"]  = "rotation"
+        return_value_2["typetype"]  = "p"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 50
+        return_value_2["pos"] = pos1
+        return_value_2["rot"] = [180,0,0]
+        return_value_2["objects"] = components_second
+        
+        thing["components"].append(return_value_2)
+
+    
+        #add slice # top
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_slice"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += -500/2
+        pos1[1] += 0
+        pos1[2] += -500/2        
+        p3["pos"] = pos1
+        #p3["m"] = "#"
+        oobb_base.append_full(thing,**p3)
+
 if __name__ == '__main__':
     kwargs = {}
     main(**kwargs)

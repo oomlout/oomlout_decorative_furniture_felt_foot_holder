@@ -1,0 +1,44 @@
+classification: project
+color: oomlout_decorative_furniture_felt_foot_h
+description_extra: ''
+description_main: bottom_0_width_0_height_5_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_decorative_furniture_felt_foot_h_bottom_0_width_0_height_5_mm_depth
+id_oobb: oobb_part_oomlout_decorative_furniture_felt_foot_h_bottom_0_width_0_height_5_mm_depth
+kwargs:
+  felt_pad_border: 5
+  felt_pad_depth: 2
+  felt_pad_od: 40
+  filter: ''
+  height: 0
+  modes:
+  - 3dpr
+  navigation: false
+  oomp_classification: project
+  oomp_color: oomlout_decorative_furniture_felt_foot_h
+  oomp_description_extra: ''
+  oomp_description_main: bottom_0_width_0_height_5_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: false
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  screw_spacing: 36
+  thickness: 5
+  type: oomlout_decorative_furniture_felt_foot_h_bottom
+  width: 0
+manufacturer: ''
+name: bottom
+part_number: ''
+project_name: C:\gh\oomlout_decorative_furniture_felt_foot_holder
+size: oomlout
+type: github
