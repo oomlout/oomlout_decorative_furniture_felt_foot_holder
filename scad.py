@@ -127,7 +127,7 @@ def make_scad(**kwargs):
         one_piece["felt_pad_depth"] = 2
         one_piece["screw_spacing"] = 36
         one_piece["thickness"] = 12
-        one_piece["furniture_leg_od"] = 27
+        one_piece["furniture_leg_od"] = 30
         one_pieces.append(one_piece)
 
         for one_piece in one_pieces:
@@ -177,7 +177,7 @@ def make_scad(**kwargs):
                 p3["oomp_size"] = nam
             if not test:
                 pass
-                parts.append(part)
+                #parts.append(part)
 
 
         tops = []
@@ -209,7 +209,7 @@ def make_scad(**kwargs):
                 p3["oomp_size"] = nam
             if not test:
                 pass
-                parts.append(part)
+                #parts.append(part)
 
 
 

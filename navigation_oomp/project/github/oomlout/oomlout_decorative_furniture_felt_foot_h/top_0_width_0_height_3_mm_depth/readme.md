@@ -1,2 +1,0 @@
-* [40_mm_felt_pad_od30_mm_furniture_leg_od_extra_6_depth](40_mm_felt_pad_od30_mm_furniture_leg_od_extra_6_depth)
-* [40_mm_felt_pad_od_30_mm_furniture_leg_od_extra_6_depth](40_mm_felt_pad_od_30_mm_furniture_leg_od_extra_6_depth)
