@@ -127,27 +127,32 @@ def make_scad(**kwargs):
         one_piece["felt_pad_depth"] = 2
         one_piece["screw_spacing"] = 36
         one_piece["thickness"] = 12
-        one_piece["furniture_leg_od"] = 30
+        #one_piece["furniture_leg_od"] = 30
         one_pieces.append(one_piece)
 
-        for one_piece in one_pieces:
-            part = copy.deepcopy(part_default)
-            p3 = copy.deepcopy(kwargs)
-            p3["width"] = 0
-            p3["height"] = 0
-            p3.update(one_piece)
-            #p3["thickness"] = 6
-            p3["extra"] = f"{p3['felt_pad_od']}_mm_felt_pad_od"
-            p3["extra"] += f"_{p3['furniture_leg_od']}_mm_furniture_leg_od"
+        furniture_leg_ods = [25,26,27,28,29,30,31,32]
 
-            part["kwargs"] = p3
-            nam = "one_piece"
-            part["name"] = nam
-            if oomp_mode == "oobb":
-                p3["oomp_size"] = nam
-            if not test:
-                pass
-                parts.append(part)
+
+        for one_piece in one_pieces:
+            for furniture_leg_od in furniture_leg_ods:
+                one_piece["furniture_leg_od"] = furniture_leg_od
+                part = copy.deepcopy(part_default)
+                p3 = copy.deepcopy(kwargs)
+                p3["width"] = 0
+                p3["height"] = 0
+                p3.update(one_piece)
+                #p3["thickness"] = 6
+                p3["extra"] = f"{p3['felt_pad_od']}_mm_felt_pad_od"
+                p3["extra"] += f"_{p3['furniture_leg_od']}_mm_furniture_leg_od"
+
+                part["kwargs"] = p3
+                nam = "one_piece"
+                part["name"] = nam
+                if oomp_mode == "oobb":
+                    p3["oomp_size"] = nam
+                if not test:
+                    pass
+                    parts.append(part)
 
         #bottom
         bottoms = []

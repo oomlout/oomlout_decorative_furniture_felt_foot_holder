@@ -1,0 +1,289 @@
+classification: project
+color: oomlout_decorative_furniture_felt_foot_h
+description_extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od_extra
+description_main: one_piece_0_width_0_height_12_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_decorative_furniture_felt_foot_h_one_piece_0_width_0_height_12_mm_depth_40_mm_felt_pad_od_26_mm_furniture_leg_od_extra
+id_oobb: oobb_part_oomlout_decorative_furniture_felt_foot_h_one_piece_0_width_0_height_12_mm_depth_40_mm_felt_pad_od_26_mm_furniture_leg_od_extra
+kwargs:
+  extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+  felt_pad_border: 5
+  felt_pad_depth: 2
+  felt_pad_od: 40
+  filter: ''
+  furniture_leg_od: 26
+  height: 0
+  modes:
+  - 3dpr
+  navigation: true
+  oomp_classification: project
+  oomp_color: oomlout_decorative_furniture_felt_foot_h
+  oomp_description_extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od_extra
+  oomp_description_main: one_piece_0_width_0_height_12_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: true
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  screw_spacing: 36
+  thickness: 12
+  typ: all
+  type: oomlout_decorative_furniture_felt_foot_h_one_piece
+  width: 0
+manufacturer: ''
+name: one_piece
+part_number: ''
+project_name: C:\gh\oomlout_decorative_furniture_felt_foot_holder
+size: oomlout
+thing:
+  classification: oobb
+  color: ''
+  components:
+  - - depth: 12
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 12
+      height: 0
+      inclusion: laser
+      pos: &id001
+      - 0
+      - 0
+      - -6.0
+      r: 22.5
+      radius: 22.5
+      shape: cylinder
+      type: positive
+      width: 0
+    - depth: 12
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 12
+      height: 0
+      inclusion: 3dpr
+      pos: *id001
+      r: 22.5
+      shape: cylinder
+      type: positive
+      width: 0
+    - depth: 12
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 12
+      height: 0
+      inclusion: 'true'
+      pos: *id001
+      r: 22.5
+      radius: 22.5
+      shape: cylinder
+      type: positive
+      width: 0
+  - - depth: 12
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 12
+      height: 0
+      inclusion: laser
+      m: '#'
+      pos: &id002
+      - 0
+      - 0
+      - -6.0
+      r: 13.0
+      radius: 13.0
+      shape: cylinder
+      type: negative
+      width: 0
+    - depth: 12
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 12
+      height: 0
+      inclusion: 3dpr
+      m: '#'
+      pos: *id002
+      r: 13.0
+      shape: cylinder
+      type: negative
+      width: 0
+    - depth: 12
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 12
+      height: 0
+      inclusion: 'true'
+      m: '#'
+      pos: *id002
+      r: 13.0
+      radius: 13.0
+      shape: cylinder
+      type: negative
+      width: 0
+  - - depth: 2
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 2
+      height: 0
+      inclusion: laser
+      pos: &id003
+      - 0
+      - 0
+      - 4.0
+      r: 20.5
+      radius: 20.5
+      shape: cylinder
+      type: negative
+      width: 0
+    - depth: 2
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 2
+      height: 0
+      inclusion: 3dpr
+      pos: *id003
+      r: 20.5
+      shape: cylinder
+      type: negative
+      width: 0
+    - depth: 2
+      extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+      h: 2
+      height: 0
+      inclusion: 'true'
+      pos: *id003
+      r: 20.5
+      radius: 20.5
+      shape: cylinder
+      type: negative
+      width: 0
+  components_objects:
+  - depth: 12
+    extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+    felt_pad_border: 5
+    felt_pad_depth: 2
+    felt_pad_od: 40
+    filter: ''
+    furniture_leg_od: 26
+    height: 0
+    modes:
+    - 3dpr
+    navigation: true
+    oomp_classification: project
+    oomp_color: oomlout_decorative_furniture_felt_foot_h
+    oomp_description_extra: ''
+    oomp_description_main: ''
+    oomp_manufacturer: ''
+    oomp_mode: project
+    oomp_part_number: ''
+    oomp_run: true
+    oomp_size: oomlout
+    oomp_type: github
+    overwrite: true
+    pos:
+    - 0
+    - 0
+    - 0
+    radius: 22.5
+    save_type: all
+    screw_spacing: 36
+    shape: oobb_cylinder
+    thickness: 12
+    typ: all
+    type: positive
+    width: 0
+  - depth: 12
+    extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+    felt_pad_border: 5
+    felt_pad_depth: 2
+    felt_pad_od: 40
+    filter: ''
+    furniture_leg_od: 26
+    height: 0
+    m: '#'
+    modes:
+    - 3dpr
+    navigation: true
+    oomp_classification: project
+    oomp_color: oomlout_decorative_furniture_felt_foot_h
+    oomp_description_extra: ''
+    oomp_description_main: ''
+    oomp_manufacturer: ''
+    oomp_mode: project
+    oomp_part_number: ''
+    oomp_run: true
+    oomp_size: oomlout
+    oomp_type: github
+    overwrite: true
+    pos:
+    - 0
+    - 0
+    - 0
+    radius: 13.0
+    save_type: all
+    screw_spacing: 36
+    shape: oobb_cylinder
+    thickness: 12
+    typ: all
+    type: negative
+    width: 0
+  - depth: 2
+    extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+    felt_pad_border: 5
+    felt_pad_depth: 2
+    felt_pad_od: 40
+    filter: ''
+    furniture_leg_od: 26
+    height: 0
+    modes:
+    - 3dpr
+    navigation: true
+    oomp_classification: project
+    oomp_color: oomlout_decorative_furniture_felt_foot_h
+    oomp_description_extra: ''
+    oomp_description_main: ''
+    oomp_manufacturer: ''
+    oomp_mode: project
+    oomp_part_number: ''
+    oomp_run: true
+    oomp_size: oomlout
+    oomp_type: github
+    overwrite: true
+    pos:
+    - 0
+    - 0
+    - 5.0
+    radius: 20.5
+    save_type: all
+    screw_spacing: 36
+    shape: oobb_cylinder
+    thickness: 12
+    typ: all
+    type: negative
+    width: 0
+  components_string:
+  - oobb_cylinder_shape_positive_type_12_depth_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_0_width_0_height_12_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_decorative_furniture_felt_foot_h_oomp_color_40_felt_pad_od_5_felt_pad_border_2_felt_pad_depth_36_screw_spacing_26_furniture_leg_od_40_mm_felt_pad_od_26_mm_furniture_leg_od_extra_22.5_radius
+  - oobb_cylinder_shape_negative_type_12_depth_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_0_width_0_height_12_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_decorative_furniture_felt_foot_h_oomp_color_40_felt_pad_od_5_felt_pad_border_2_felt_pad_depth_36_screw_spacing_26_furniture_leg_od_40_mm_felt_pad_od_26_mm_furniture_leg_od_extra_13.0_radius
+  - oobb_cylinder_shape_negative_type_2_depth_0_0_5.0_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_0_width_0_height_12_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_decorative_furniture_felt_foot_h_oomp_color_40_felt_pad_od_5_felt_pad_border_2_felt_pad_depth_36_screw_spacing_26_furniture_leg_od_40_mm_felt_pad_od_26_mm_furniture_leg_od_extra_20.5_radius
+  description: oomlout decorative furniture felt foot h one piece 0x0x12
+  description_extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od_extra
+  description_main: 0_width_0_height_12_mm_depth
+  extra: 40_mm_felt_pad_od_26_mm_furniture_leg_od
+  folder: C:\gh\oomlout_oobb_version_4_generated_parts\parts\oobb_part_oomlout_decorative_furniture_felt_foot_h_one_piece_0_width_0_height_12_mm_depth_40_mm_felt_pad_od_26_mm_furniture_leg_od_extra
+  height: 0
+  height_mm: -1
+  id: oobb_part_oomlout_decorative_furniture_felt_foot_h_one_piece_0_width_0_height_12_mm_depth_40_mm_felt_pad_od_26_mm_furniture_leg_od_extra
+  link_main: https://github.com/oomlout/oomlout_oobb_version_4_generated_parts/tree/main/navigation_oomp/oobb/part/oomlout_decorative_furniture_felt_foot_h_one_piece/0_width_0_height_12_mm_depth/40_mm_felt_pad_od_26_mm_furniture_leg_od_extra/part
+  link_redirect: https://github.com/oomlout/oomlout_oobb_version_4_generated_parts/tree/main/parts/oobb_oomlout_decorative_furniture_felt_foot_h_one_piece_00_00_12_ex_40_mm_felt_pad_od_26_mm_furniture_leg_od
+  manufacturer: ''
+  name: Oobb Part Oomlout Decorative Furniture Felt Foot H One Piece 0 Width 0 Height
+    12 mm Depth 40 mm Felt Pad Od 26 mm Furniture Leg Od Extra
+  name_short: Oomlout Decorative Furniture Felt Foot
+  part_number: ''
+  short_name: ''
+  size: oomlout_decorative_furniture_felt_foot_h_one_piece
+  thickness: 12
+  thickness_mm: 12
+  type: part
+  width: 0
+  width_mm: -1
+type: github
